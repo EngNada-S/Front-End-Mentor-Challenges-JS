@@ -1,0 +1,201 @@
+@import url(https://fonts.googleapis.com/css?family=Manrope:200,300,regular,500,600,700,800);
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: 'Manrope', sans-serif;
+    min-height: 100vh;
+    font-size: 13px;
+    background-color: hsl(210, 46%, 95%);
+    display: grid;
+    grid-template-rows: 1fr auto;
+    justify-content: center;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.article {
+    width: 700px;
+    display: flex;
+}
+
+.article>img {
+    width: 40%;
+    border-radius: 15px 0 0 15px;
+}
+
+.article .desc {
+    background-color: white;
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    border-radius: 0 15px 15px 0;
+}
+
+.article .desc h1 {
+    color: hsl(217, 19%, 35%);
+    font-size: 1.4rem;
+}
+
+.article .desc p {
+    color: hsl(214, 17%, 51%);
+}
+
+.writer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+.writer .writer-data {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.writer .writer-data img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.writer .writer-data .writer-name {
+    color: hsl(217, 19%, 35%);
+    font-weight: bold;
+}
+
+.writer .writer-data .date {
+    color: hsl(212, 23%, 69%);
+}
+
+#share-btn {
+    border: none;
+    outline: none;
+    background-color: hsl(214, 17%, 51%);
+    width: 32px;
+    height: 32px;
+    line-height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+}
+
+#share-btn i {
+    color: white;
+}
+
+.links {
+    position: absolute;
+    top: -150%;
+    right: 16px;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 15px 25px;
+    background-color: hsl(217, 19%, 35%);
+    border-radius: 15px;
+    transform: translateX(50%);
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.2s;
+}
+
+.links.show {
+    visibility: visible;
+    opacity: 1;
+}
+
+.links::after {
+    content: "";
+    border: 10px solid;
+    border-color: hsl(217, 19%, 35%) transparent transparent transparent;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.links span {
+    letter-spacing: 7px;
+    color: hsl(212, 23%, 69%);
+    text-transform: uppercase;
+
+}
+
+.links ul {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.attribution {
+    padding: 15px 0;
+    font-size: 11px;
+    text-align: center;
+}
+
+.attribution a {
+    color: hsl(228, 45%, 44%);
+}
+
+/* Responsive */
+@media(max-width:991px) {
+    .article {
+        width: 600px;
+    }
+}
+
+@media (max-width:767px) {
+    .article {
+        width: 100%;
+        margin: 30px 15px;
+        flex-direction: column;
+    }
+
+    .article>img {
+        width: 100%;
+        border-radius: 15px 15px 0 0;
+    }
+
+    .article .desc {
+        border-radius: 0 0 15px 15px;
+        padding-bottom: 0;
+        overflow: hidden;
+    }
+
+    .writer {
+        padding: 20px 0;
+    }
+
+    .links {
+        width: calc(100% + 50px);
+        height: 100%;
+        top: 0;
+        left: calc(100% + 25px);
+        border-radius: 0 0 15px 15px;
+        transform: translateX(0%);
+    }
+
+    .links.show {
+        left: -25px;
+    }
+
+    .links::after {
+        display: none;
+    }
+}
